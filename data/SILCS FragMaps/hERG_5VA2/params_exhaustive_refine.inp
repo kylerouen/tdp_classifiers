@@ -1,0 +1,54 @@
+! input file; use ! or # for skipping lines
+
+#####################################################################
+SILCS_RULES  <SILCSBIODIR>/data/silcs/silcs_classification_rules_2021_generic_apolar_scale_1f.dat
+CGENFF_RULES <SILCSBIODIR>/data/cgenff/cgenff.rules
+CGENFF_PAR   <SILCSBIODIR>/data/cgenff/par_all36_cgenff.prm
+GFE_CAP  3.0
+
+MINIMIZE_INPUT false
+MINIMIZE_BFGS false
+MIN_STEPS 10000
+
+MC_MOVE_RANGE  1.0  180.0  180.0
+MC_STEPS 10000
+MC_RUN 1                       !  
+MC_STEPS2 10000                !  
+MC_MOVE_RANGE2  0.1  9.0  60.0 ! 
+
+SIM_ANNEAL_MOVE_RANGE  0.2 9.0 9.0
+SIM_ANNEAL_STEPS  40000
+
+DELTAE_TOLERANCE 0.5
+TOT_RUNS 250
+TOT_WRITE 250
+DELTA_LGFE_BUFF 10.0
+SILCS_LGFE_NORMALIZE false
+RANDOM_SEED <seed>
+#####################################################################
+
+RANDOM_INIT_ORIENT <randinitorient>    ! false to use starting orientation
+                           ! true to randomize orientation
+
+SIMULATION_CENTER <centerx> <centery> <centerz>
+SIMULATION_RADIUS <radius>
+
+!FORMAT OF SPECIFYING MAPS: SILCSMAP  <TYPE>  <FILENAME>
+SILCSMAP BENC <MAPDIR>/<prot>.apolar.gfe.map 0.326752
+SILCSMAP PRPC <MAPDIR>/<prot>.apolar.gfe.map 0.324842
+SILCSMAP MEOO <MAPDIR>/<prot>.meoo.gfe.map 0.6109
+SILCSMAP FORN <MAPDIR>/<prot>.forn.gfe.map   1.000
+SILCSMAP FORO <MAPDIR>/<prot>.foro.gfe.map   1.000
+SILCSMAP FORC <MAPDIR>/<prot>.forc.gfe.map   1.000
+SILCSMAP MAMC <MAPDIR>/<prot>.mamn.gfe.map 1.349
+SILCSMAP MAMN <MAPDIR>/<prot>.mamn.gfe.map 1.9401
+SILCSMAP ACEC <MAPDIR>/<prot>.acec.gfe.map 0.6523
+SILCSMAP IMIN <MAPDIR>/<prot>.imin.gfe.map   1.000
+SILCSMAP IMIH <MAPDIR>/<prot>.iminh.gfe.map  1.000
+SILCSMAP GEND <MAPDIR>/<prot>.hbdon.gfe.map 0.6099
+SILCSMAP GENA <MAPDIR>/<prot>.hbacc.gfe.map 0.6048
+SILCSMAP GEHC <MAPDIR>/<prot>.gehc.gfe.map 0.207925
+SILCSMAP DMEO <MAPDIR>/<prot>.dmeo.gfe.map   1.000
+SILCSMAP EXCL <MAPDIR>/<prot>.excl.map       1.000
+SILCSMAP NCLA <MAPDIR>/<prot>.zero.map       1.000
+
